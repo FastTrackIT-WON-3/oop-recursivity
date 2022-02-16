@@ -90,5 +90,45 @@ namespace OopRecursivity
                 return IndexOfElement(element, array, middleIndex + 1, indexEnd);
             }
         }
+
+        public static int Min(int[] array)
+        {
+            if (array is null || array.Length == 0)
+            {
+                return int.MinValue;
+            }
+
+            return Min(array, 0);
+        }
+
+        private static int Min(int[] array, int index)
+        {
+            if (index == array.Length - 1)
+            {
+                return array[index];
+            }
+
+            return Math.Min(array[index], Min(array, index + 1));
+        }
+
+        public static int Sum(int[] array)
+        {
+            if (array is null || array.Length == 0)
+            {
+                return 0;
+            }
+
+            return Sum(array, 0);
+        }
+
+        private static int Sum(int[] array, int index)
+        {
+            if (index == array.Length - 1)
+            {
+                return array[index];
+            }
+
+            return array[index] + Sum(array, index + 1);
+        }
     }
 }
